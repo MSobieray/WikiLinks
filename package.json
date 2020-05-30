@@ -1,0 +1,11 @@
+{
+  "name": "roon-wiki",
+  "version": "0.0.0",
+  "description": "full-stack-application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mattsobieray@gmail.com",
+  "license": "ISC"
+}
