@@ -1,3 +1,10 @@
-const db = require('./db');
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 3000;
+const api = require('./api');
 
-db.run('CREATE TABLE langs(name text)');
+
+
+app.use('/api', api);
+
+app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
