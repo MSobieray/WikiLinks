@@ -1,5 +1,11 @@
 <template>
-  <div id="app">
+  <div id="app" class="max-w-6xl mx-auto mt-8">
+    <div class="flex justify-end" >
+      <ul class="flex justify-around">
+        <li class="px-2"><a href="">edit page</a></li>
+        <li class="px-2"><a href="">view history</a></li>
+      </ul>
+    </div>
     <h1 class="text-3xl">Matt's Wiki Links</h1>
     <all-wikis />
   </div>
@@ -15,14 +21,3 @@ export default {
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
