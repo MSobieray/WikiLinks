@@ -9,7 +9,7 @@ router.use(function apiLog (req, res, next) {
 })
 
 router.get('/wikis', async (req, res) => {
-  db.all(`SELECT * FROM wikis`, [], (err, rows) => {
+  db.all(`SELECT rowid, page_name, page_slug, page_content FROM wikis`, [], (err, rows) => {
     if(err) {
       console.log(err);
       res.send(err);

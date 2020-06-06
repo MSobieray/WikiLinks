@@ -1,23 +1,14 @@
 <template>
-  <div id="app" class="max-w-6xl mx-auto mt-8">
-    <div class="flex justify-end" >
-      <ul class="flex justify-around">
-        <li class="px-2"><a href="">edit page</a></li>
-        <li class="px-2"><a href="">view history</a></li>
-      </ul>
+  <div class="max-w-6xl mx-auto mt-6 px-4">
+    <div class="flex justify-end capitalize" v-if="this.$route.name !== 'History'">
+      <router-link v-if="this.$route.name !== 'Edit'" class="p-2" to="/edit">edit page</router-link>
+      <router-link class="p-2" to="/history">view history</router-link>
     </div>
-    <h1 class="text-3xl">Matt's Wiki Links</h1>
-    <all-wikis />
+    <router-view/>
   </div>
 </template>
-
 <script>
-import AllWikis from './components/AllWikis.vue'
-
 export default {
-  name: 'App',
-  components: {
-    AllWikis
-  }
+  name: 'App'
 }
 </script>

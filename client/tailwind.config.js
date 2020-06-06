@@ -1,7 +1,17 @@
 module.exports = {
-  purge: [],
+  purge: [
+    "./views/**/*.vue", 
+    "./components/**/*.vue"
+  ],
   theme: {
-    extend: {},
+    extend: {
+      height: {
+        '75': '75vh'
+      },
+      width: {
+        '50': '50%'
+      }
+    },
   },
   variants: {},
   plugins: [],

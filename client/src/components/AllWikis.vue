@@ -1,6 +1,6 @@
 <template>
-  <div class="">
-    <div v-for="wiki in wikis" :key="wiki.page_slug">
+  <div>
+    <div v-for="wiki in wikis" :key="wiki.rowid">
       <h3 class="text-xl">
         {{ wiki.page_name }}
       </h3>
@@ -12,21 +12,10 @@
 </template>
 
 <script>
+import {mapState} from 'vuex';
 export default {
-  name: 'HelloWorld',
-  data() {
-    return {
-      wikis: null
-    }
-  },
-  props: {
-    msg: String
-  },
-  created() {
-    fetch('/api/wikis').then(blob => blob.json()).then(data => {
-      this.wikis = data;
-    });
-  }
+  name: 'AllWikis',
+  computed: mapState(['wikis'])
 }
 </script>
 
