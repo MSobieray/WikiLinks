@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Store from '../store';
-import store from '../store';
 
 Vue.use(VueRouter)
 
@@ -23,15 +22,21 @@ Vue.use(VueRouter)
     component: () => import(/* webpackChunkName: "history" */ '../views/History.vue')
   },
   {
-    path: '/content/:id',
-    name: 'Content',
-    component: () => import(/* webpackChunkName: "content" */ '../views/Content.vue')
+    path: '/page/:id',
+    name: 'Page',
+    component: () => import(/* webpackChunkName: "content" */ '../views/Page.vue')
   },
   {
     path: '/markdown',
     name: 'Markdown',
     component: () => import(/* webpackChunkName: "markdown" */ '../views/Markdown.vue')
+  },
+  {
+    path: '*',
+    name: "NoPage",
+    component: () => import(/* webpackChunkName: "nopage" */ '../views/NoPage.vue')
   }
+
 ]
 
 const router = new VueRouter({
@@ -41,7 +46,7 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  if (!store.state.wikis) {
+  if (!Store.state.wikis) {
     Store.dispatch('getWikis');
   }
   next();

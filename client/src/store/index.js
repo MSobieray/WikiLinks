@@ -8,20 +8,52 @@ export default new Vuex.Store({
     wikis: null
   },
   mutations: {
-    UPDATE_WIKIS(state, payload) {
+    SET_WIKIS(state, payload) {
       Vue.set(state, 'wikis', payload);
+    },
+    UPDATE_WIKI(state, payload) {
+      const wikiIndex = state.wikis.indexOf(payload);
+      state.wikis[wikiIndex] = payload;
     }
   },
   actions: {
     getWikis({commit}) {
-      fetch('/api/wikis').then(blob => blob.json()).then(data => {
-        commit("UPDATE_WIKIS", data);
+      fetch('/api/wikis')
+      .then(blob => blob.json())
+      .then(data => {
+        commit("SET_WIKIS", data);
+      });
+    },
+    updateWiki({commit}, payload) {
+      fetch(`/api/update/${payload.rowid}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(() => {
+        commit('UPDATE_WIKI', payload)
+      })
+      .catch(err => {
+        console.log(err);
+      }); 
+    },
+    createWiki({dispatch}, payload) {
+      fetch(`/api/create`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      }).then(() => {
+        dispatch("getWikis");
       });
     }
   },
   getters: {
-    selectWiki: state => (id) => {
-      return state.wikis.find(wiki => wiki.rowid === Number(id))
+    selectWiki: state => (slug) => {
+      return state.wikis.find(wiki => wiki.page_slug === slug);
     }
   }
 })

@@ -12,3 +12,6 @@ DELETE FROM wikis
 WHERE rowid = 3;
 
 SELECT rowid, page_name from wikis;
+
+
+SELECT rowid, page_name, page_slug, page_content FROM wikis WHERE rowid = 11;
