@@ -1,13 +1,14 @@
 <template>
   <div>
-    <div v-for="wiki in wikis" :key="wiki.rowid">
-      <h3 class="text-xl">
-        {{ wiki.page_name }}
-      </h3>
-      <p>
-        {{ wiki.page_content }}
-      </p>
-    </div>
+    <ul>
+      <li v-for="wiki in wikis" :key="wiki.rowid" class="flex justify-between">
+        <router-link class="text-lg text-blue-600 flex-1" :to="{ name: 'Page', params: { id: wiki.page_slug }}">
+          {{ wiki.page_name }}
+        </router-link>
+        <span class="text-sm flex-1">created: {{ new Date(wiki.created_at).toDateString() }}</span>
+        <span class="text-sm flex-1">updated: {{ new Date(wiki.updated_at).toDateString() }}</span>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -18,21 +19,3 @@ export default {
   computed: mapState(['wikis'])
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>

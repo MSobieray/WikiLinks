@@ -10,7 +10,7 @@ router.use(function apiLog (req, res, next) {
 
 router.get('/wikis', (req, res) => {
   db
-  .all(`SELECT rowid, page_name, page_slug, page_content FROM wikis`, [], (err, rows) => {
+  .all(`SELECT rowid, page_name, page_slug, page_content, created_at, updated_at FROM wikis`, [], (err, rows) => {
     if(err) {
       // TODO: setup err logging
       console.log(err);
