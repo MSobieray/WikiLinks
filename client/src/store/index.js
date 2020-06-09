@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    wikis: null
+    wikis: null,
+    search_results: null
   },
   mutations: {
     SET_WIKIS(state, payload) {
@@ -14,6 +15,9 @@ export default new Vuex.Store({
     UPDATE_WIKI(state, payload) {
       const wikiIndex = state.wikis.indexOf(payload);
       state.wikis[wikiIndex] = payload;
+    },
+    SEARCH_RESULTS(state, payload) {
+      state.search_results = payload;
     }
   },
   actions: {
@@ -49,6 +53,11 @@ export default new Vuex.Store({
       }).then(() => {
         dispatch("getWikis");
       });
+    },
+    searchWikis({commit}, payload) {
+      fetch(`/api/search?search=${payload}`).then(res => res.json()).then(json => {
+        commit('SEARCH_RESULTS', json)
+      })
     }
   },
   getters: {

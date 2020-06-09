@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Search from '../views/Search.vue';
 import Store from '../store';
 
 Vue.use(VueRouter)
@@ -30,6 +31,11 @@ Vue.use(VueRouter)
     path: '/markdown',
     name: 'Markdown',
     component: () => import(/* webpackChunkName: "markdown" */ '../views/Markdown.vue')
+  },
+  {
+    path: '/search',
+    name: 'Search',
+    component: Search
   },
   {
     path: '*',

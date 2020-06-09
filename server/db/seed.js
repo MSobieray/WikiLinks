@@ -1,14 +1,14 @@
 const db = require('./index');
 
 const dropWiki = `DROP TABLE if EXISTS wikis`;
-const wikiTable = `CREATE TABLE wikis( 
-  page_name text,
-  page_slug text,
-  page_content text,
-  created_at date,
-  updated_at date
+const wikiTable = `CREATE VIRTUAL TABLE wikis USING FTS5( 
+  page_name,
+  page_slug,
+  page_content,
+  created_at,
+  updated_at
   )`
-
+  
 function setup() {
   db.serialize(() => {
     db

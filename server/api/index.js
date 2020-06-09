@@ -49,4 +49,16 @@ router.post("/update/:id", (req, res) => {
   })
 })
 
+router.get('/search', (req, res) => {
+  console.log(req.query.search);
+  db.all('SELECT * from wikis WHERE wikis MATCH ?', [req.query.search], (err, rows) => {
+    
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    }
+    res.json(rows);
+   })
+})
+
 module.exports = router;

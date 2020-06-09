@@ -13,9 +13,12 @@
 </template>
 
 <script>
-import {mapState} from 'vuex';
 export default {
   name: 'AllWikis',
-  computed: mapState(['wikis'])
+  props: {
+    wikis: {
+      type: [Array, null]
+    }
+  }
 }
 </script>

@@ -3,18 +3,19 @@
     <h1>Main Page</h1>
     <h4 >Matts Wikis</h4>
     <p class="mb-6 text-sm">Wikis are created with markdown <router-link class="text-blue-600" :to="{name: 'Markdown'}">Demo</router-link></p>
-    <all-wikis />
+    <all-wikis :wikis="wikis" />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
+import {mapState} from 'vuex'
 import AllWikis from '@/components/AllWikis'
 
 export default {
   name: 'Home',
   components: {
     AllWikis
-  }
+  },
+  computed: mapState(['wikis'])
 }
 </script>
