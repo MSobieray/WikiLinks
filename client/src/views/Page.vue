@@ -1,7 +1,7 @@
 <template>
   <div v-if="wiki">
     <h1>{{ wiki.page_name }}</h1>
-    <div v-html="pageContent"></div>
+    <div v-html="pageContent" class="markdown-body"></div>
   </div>
   <div v-else>
     <h1>{{ this.$route.params.id}}</h1>

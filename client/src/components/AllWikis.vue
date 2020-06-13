@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li v-for="wiki in wikis" :key="wiki.rowid" class="flex justify-between">
+      <li v-for="wiki in wikis" :key="wiki.wiki_id" class="flex justify-between">
         <router-link class="text-lg text-blue-600 flex-1" :to="{ name: 'Page', params: { id: wiki.page_slug }}">
           {{ wiki.page_name }}
         </router-link>

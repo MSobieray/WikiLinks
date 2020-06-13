@@ -38,6 +38,11 @@ Vue.use(VueRouter)
     component: Search
   },
   {
+    path: '/diff/:id',
+    name: 'Diff',
+    component: () => import(/* webpackChunkName: "diff" */ '../views/Diffs.vue')
+  },
+  {
     path: '*',
     name: "NoPage",
     component: () => import(/* webpackChunkName: "nopage" */ '../views/NoPage.vue')

@@ -38,8 +38,11 @@
         // add title
         // add changelog desc
         if (this.wiki) {
-          this.wiki.page_content = this.rawContent
-          this.$store.dispatch('updateWiki', this.wiki )
+          this.$store.dispatch('updateWiki', {
+            page_content: this.rawContent,
+            wiki_id: this.wiki.wiki_id,
+            page_slug: this.wiki.page_slug
+          })
         } else {
           this.$store.dispatch('createWiki', {
             page_content: this.rawContent,

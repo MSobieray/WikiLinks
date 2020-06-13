@@ -1,20 +1,20 @@
 <template>
   <div>
-    <h1>{{history}}</h1>
+    <ul>
+      <li v-for="diff in diffs" :key="diff.changelog_id">
+        <router-link :to="`/diff/${diff.changelog_id}`">{{ diff.created_at }}</router-link>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
+  import { mapState } from 'vuex';
   export default {
     name: 'History',
-    computed: {
-      history() {
-        return `history array of diffs for ${this.$route.params.id}`;
-      }
+    computed: mapState(['diffs']),
+    created() {
+      this.$store.dispatch('getChangelog', this.$route.params.id);
     }
   }
 </script>
-
-<style lang="scss" scoped>
-
-</style>
