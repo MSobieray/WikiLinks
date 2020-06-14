@@ -1,25 +1,32 @@
 # Matts Wikis
 
 ## Setup
+_run these from the root dir_
 
-Initial setup steps:
+1. Initial setup (npm installs)
 ```
 npm run setup
 ```
-Create Schema
+2. Create DB Schema
 ```
 node server/db/seed
 ```
-
-Boot up the app
+3. Boot up the app
 ```
-npm run dev
+cd server && npm run fullstack
 ```
 
 ## Loose Ends / Nice To Have's
 
 1. Updates to a wiki are not updated in the search table
 2. Refresh of a search page does not persist the results in the query
-3. Ability to have multiple pages with the same title/slug
-4. Notification Handler (e.g. on save of an edit)
-5. Better logging on the API calls
+3. Support for uploading images
+4. Better Changelog descriptions
+5. Ability to edit page names
+6. Show Broken Links
+7. Validation to prevent multiple pages with the same title/slug
+8. Notification Handler (e.g. on save of an edit)
+9. Better logging on the API calls
+10. Setup Babel on the server
+11. Unit Tests / E2E Tests
+12. Docker

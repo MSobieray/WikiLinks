@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "fullstack": "concurrently \"npm run dev\" \"cd ../client && npm run serve\""
   },
   "author": "mattsobieray@gmail.com",
   "license": "ISC",
@@ -14,6 +15,7 @@
     "sqlite3": "^4.2.0"
   },
   "devDependencies": {
+    "concurrently": "^5.2.0",
     "nodemon": "^2.0.4"
   }
 }
