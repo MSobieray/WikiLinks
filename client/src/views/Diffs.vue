@@ -1,12 +1,10 @@
 <template>
   <div>
-    {{diff}}
     <div v-if="prettyHtml" v-html="prettyHtml"></div>
   </div>
 </template>
 
 <script>
-  // import showdown from 'showdown';
   import * as Diff2Html from 'diff2html';
   import 'diff2html/bundles/css/diff2html.min.css';
   import * as Diff from 'diff';
@@ -26,7 +24,7 @@
           matching: 'lines',
           outputFormat: 'side-by-side',
         });
-      },
+      }
     }
   }
 </script>

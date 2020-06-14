@@ -1,7 +1,6 @@
 <template>
   <div>
     <h1>{{ pageName | slugIt}}</h1>
-    <!-- add title and change log desc -->
     <div class="flex">
       <textarea v-model="rawContent" @keyup="converter" class="border h-75 flex-1 p-2 mr-2 max-w-50 overflow-scroll"></textarea>
       <div class="ml-2 p-2 border h-75 flex-1 max-w-50 overflow-scroll markdown-body" v-html="convertedContent">
@@ -35,8 +34,6 @@
         this.convertedContent = converter.makeHtml(this.rawContent);
       },
       save() {
-        // add title
-        // add changelog desc
         if (this.wiki) {
           this.$store.dispatch('updateWiki', {
             page_content: this.rawContent,
@@ -51,7 +48,6 @@
           })
         }
       }
-
     },
     created() {
       if (this.wiki) {

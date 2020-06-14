@@ -5,12 +5,12 @@
         <router-link class="p-2" to="/">Home</router-link>
         <div v-if="showNav" >
           <router-link class="p-2" :to="`/edit/${this.$route.params.id}`">Edit Page</router-link>
-          <router-link class="p-2" to="/history">View History</router-link>
+          <router-link class="p-2" :to="`/history/${this.$route.params.id}`">View History</router-link>
         </div>
         <div v-else>
           <a @click.prevent="back" href="#" class="p-2">Back</a>
         </div>
-        <input @keyup.enter="searchWikis" v-model="search" class="border p-2 ml-16 text-gray-900" type="text" placeholder="search">
+        <input @keyup.enter="searchWikis" v-model="search" class="border p-2 ml-4 text-gray-900" type="text" placeholder="search">
       </div>
     </nav>
     <div class="mt-24 px-4 max-w-6xl mx-auto min-h-screen">

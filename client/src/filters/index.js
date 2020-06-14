@@ -8,3 +8,7 @@ export function slugIt(slug) {
     return slug.toLowerCase();
   }
 } 
+
+export function formatDate(data) {
+  return new Date(data).toDateString();
+}

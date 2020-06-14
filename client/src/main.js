@@ -5,9 +5,11 @@ import 'github-markdown-css/github-markdown.css'
 import router from './router'
 import store from './store'
 import {slugIt} from './filters';
+import {formatDate} from './filters';
 Vue.config.productionTip = false
 
 Vue.filter('slugIt', slugIt);
+Vue.filter('formatDate', formatDate);
 new Vue({
   router,
   store,
