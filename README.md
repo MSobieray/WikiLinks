@@ -13,7 +13,7 @@ node server/db/seed
 ```
 3. Boot up the app
 ```
-cd server && npm run fullstack
+npm run dev
 ```
 
 ## Loose Ends / Nice To Have's
